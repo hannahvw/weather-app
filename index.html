@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+    />
+    <script
+      src="https://kit.fontawesome.com/3f831d9f1f.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <!-- 
+        <div class="degrees">
+          <a href="#"><span class="farenheit">F</span></a> |
+          <a href="#"><span class="celcius">C</span></a>
+        </div> -->
+
+        <form class="search-form">
+          <input type="text" class="search-bar" placeholder="City name" />
+          <input type="submit" value="Change City" class="button" />
+          <input
+            type="submit"
+            value="Current Location"
+            class="button current-location-button"
+          />
+        </form>
+        <div class="row main-section">
+          <div class="col-6">
+            <h2 id="city">Des Moines</h2>
+            <h6 class="date">Sat 8 Oct 2022 06:57</h6>
+            <h2 id="currentTemp">20˚F</h2>
+          </div>
+          <div class="col-6 weather-stats">
+            <!-- <i class="fa-regular fa-snowflake"></i> -->
+            <h2 id="description">Snow</h2>
+            <p class="stats">
+              H:<span id="currentHigh">25</span> L:<span id="currentLow"
+                >16</span
+              ><br />
+              Humidity: <span id="humidity">85</span>% <br />
+              Wind: <span id="wind">12</span> MPH SE
+            </p>
+          </div>
+        </div>
+        <div class="row forecast">
+          <div class="col daily-forecast">
+            <h5>Friday</h5>
+            <p>H:20˚ L:12˚</p>
+            <i class="fa-regular fa-snowflake"></i>
+          </div>
+          <div class="col daily-forecast">
+            <h5>Saturday</h5>
+            <p>H:19˚ L:10˚</p>
+            <i class="fa-regular fa-snowflake"></i>
+          </div>
+          <div class="col daily-forecast">
+            <h5>Sunday</h5>
+            <p>H:25˚ L:16˚</p>
+            <i class="fa-solid fa-cloud"></i>
+          </div>
+          <div class="col daily-forecast">
+            <h5>Monday</h5>
+            <p>H:25˚ L:16˚</p>
+            <i class="fa-solid fa-cloud-sun"></i>
+          </div>
+          <div class="col daily-forecast">
+            <h5>Tuesday</h5>
+            <p>H:27˚ L:18˚</p>
+            <i class="fa-solid fa-sun"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

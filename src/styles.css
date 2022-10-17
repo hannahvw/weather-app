@@ -1,0 +1,132 @@
+body {
+  background-image: url("../images/cloud.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #303438;
+  font-family: "Roboto Mono", monospace;
+}
+
+/* color palette: https://www.color-hex.com/color-palette/368  */
+
+a {
+  text-decoration: none;
+  color: #303438;
+}
+
+form {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+form .search-bar {
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid #5a4565;
+  width: 35%;
+}
+
+form .button {
+  color: #e2dbe9;
+  background: #5a4565;
+  border: 1px solid #5a4565;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+form .button:hover {
+  background: #3e204f;
+}
+
+.card {
+  margin-top: 50px;
+  padding: 10px 20px;
+  width: 600px;
+  border: none;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  display: block;
+  margin: 75px auto;
+  background: #f8f6f9;
+}
+
+.degrees {
+  font-size: 20px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.farenheit,
+.celcius {
+  color: #3e204f;
+}
+
+.farenheit:hover,
+.celcius:hover {
+  cursor: pointer;
+  color: #8b7995;
+}
+
+.main-section {
+  margin: 20px;
+  text-align: center;
+}
+
+.main-section h2 {
+  font-size: 35px;
+}
+
+.main-section p {
+  font-size: 14px;
+  line-height: 1.1;
+  margin-top: 20px;
+}
+
+.main-section i {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.main-section .weather-icon {
+  margin-top: 30px;
+}
+
+.forecast h5 {
+  font-size: 20px;
+}
+
+.forecast {
+  text-align: center;
+}
+
+.forecast p {
+  font-size: 14px;
+}
+
+.forecast i {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.daily-forecast {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.daily-forecast h5 {
+  font-size: 20px;
+}
+
+.daily-forecast p {
+  font-size: 16px;
+}
+
+.daily-forecast:hover {
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#description {
+  font-size: 30px;
+  margin-top: 10px;
+}
