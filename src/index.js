@@ -37,28 +37,36 @@ function formatDate() {
 formatDate();
 
 function showWeather(response) {
-  let currentCity = document.querySelector("#city");
-  currentCity.innerHTML = response.data.name;
+  document.querySelector("#city").innerHTML = response.data.name;
   let currentTemperature = Math.round(response.data.main.temp);
-  let currentTemp = document.querySelector("#currentTemp");
-  currentTemp.innerHTML = `${currentTemperature}˚F`;
-  let currentHumidity = document.querySelector("#humidity");
-  currentHumidity.innerHTML = `${response.data.main.humidity}`;
-  let currentWind = document.querySelector("#wind");
-  currentWind.innerHTML = `${Math.round(response.data.wind.speed)}`;
-  let currentDescription = document.querySelector("#description");
-  currentDescription.innerHTML = `${response.data.weather[0].main}`;
-  let currentHighTemp = document.querySelector("#currentHigh");
-  currentHighTemp.innerHTML = `${Math.round(response.data.main.temp_max)}˚`;
-  let currentLowTemp = document.querySelector("#currentLow");
-  currentLowTemp.innerHTML = `${Math.round(response.data.main.temp_min)}˚`;
+  document.querySelector("#currentTemp").innerHTML = `${currentTemperature}˚F`;
+  document.querySelector(
+    "#humidity"
+  ).innerHTML = `${response.data.main.humidity}`;
+  document.querySelector("#wind").innerHTML = `${Math.round(
+    response.data.wind.speed
+  )}`;
+  document.querySelector(
+    "#description"
+  ).innerHTML = `${response.data.weather[0].main}`;
+  document.querySelector("#currentHigh").innerHTML = `${Math.round(
+    response.data.main.temp_max
+  )}˚`;
+  document.querySelector("#currentLow").innerHTML = `${Math.round(
+    response.data.main.temp_min
+  )}˚`;
+}
+
+function showDefault(city) {
+  let apiKey = "2513f3c728b1b5ff4f4347e1a6af22b8";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
+  axios.get(apiUrl).then(showWeather);
 }
 
 function searchCity(event) {
   event.preventDefault();
   let input = document.querySelector(".search-bar");
-  let currentCity = document.querySelector("#city");
-  currentCity.innerHTML = input.value;
+  document.querySelector("#city").innerHTML = input.value;
   let apiKey = "2513f3c728b1b5ff4f4347e1a6af22b8";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=imperial&appid=${apiKey}`;
   axios.get(apiUrl).then(showWeather);
@@ -82,6 +90,8 @@ function displayCurrentLocationWeather(event) {
 
 let currentLocationWeather = document.querySelector(".current-location-button");
 currentLocationWeather.addEventListener("click", displayCurrentLocationWeather);
+
+showDefault("Chicago");
 
 /*
 function displayCelcius() {
