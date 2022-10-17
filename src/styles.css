@@ -126,6 +126,20 @@ form .button:hover {
   cursor: pointer;
 }
 
+.credits {
+  font-size: 12px;
+  text-align: center;
+  margin-top: -50px;
+}
+
+.credits a {
+  color: blue;
+}
+
+.credits a:hover {
+  text-decoration: underline;
+}
+
 #description {
   font-size: 30px;
   margin-top: 10px;
