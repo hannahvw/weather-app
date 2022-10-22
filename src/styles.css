@@ -42,7 +42,7 @@ form .button:hover {
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
   display: block;
   margin: 75px auto;
-  background: #f8f6f9;
+  background: #e2dbe9;
 }
 
 .degree-unit {
@@ -72,8 +72,12 @@ form .button:hover {
   margin-bottom: 10px;
 }
 
-.main-section .weather-icon {
-  margin-top: 30px;
+.weather-stats {
+  margin-top: 35px;
+}
+
+.weather-stats p {
+  margin-top: 5px;
 }
 
 .forecast h5 {
@@ -128,7 +132,7 @@ form .button:hover {
 
 .date {
   font-size: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .degree-unit a {
@@ -145,14 +149,15 @@ form .button:hover {
 }
 
 #description {
-  font-size: 30px;
+  font-size: 16px;
   margin-top: 10px;
+  margin-bottom: 0;
 }
 
 #currentTemp {
-  font-size: 35px;
+  font-size: 40px;
 }
 
 #current-weather-icon {
-  font-size: 35px;
+  margin-top: 25px;
 }

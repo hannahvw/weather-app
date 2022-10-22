@@ -37,6 +37,7 @@ function formatDate() {
 formatDate();
 
 function showWeather(response) {
+  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   let currentTemperature = Math.round(response.data.main.temp);
   document.querySelector("#currentTemp").innerHTML = `${currentTemperature}˚`;
@@ -48,13 +49,19 @@ function showWeather(response) {
   )}`;
   document.querySelector(
     "#description"
-  ).innerHTML = `${response.data.weather[0].main}`;
+  ).innerHTML = `${response.data.weather[0].description}`;
   document.querySelector("#currentHigh").innerHTML = `${Math.round(
     response.data.main.temp_max
   )}˚`;
   document.querySelector("#currentLow").innerHTML = `${Math.round(
     response.data.main.temp_min
   )}˚`;
+  let weatherIcon = document.querySelector("#current-weather-icon");
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
 
   farenheitTemp = response.data.main.temp;
 }
