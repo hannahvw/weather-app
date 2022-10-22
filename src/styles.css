@@ -5,11 +5,6 @@ body {
 
 /* color palette: https://www.color-hex.com/color-palette/368  */
 
-a {
-  text-decoration: none;
-  color: #303438;
-}
-
 form {
   margin-top: 10px;
   margin-left: 10px;
@@ -135,9 +130,14 @@ form .button:hover {
   margin-bottom: 15px;
 }
 
+.degree-unit {
+  color: #968ba3;
+}
+
 .degree-unit a {
-  color: #bcaecc;
+  color: #83798e;
   cursor: default;
+  text-decoration: none;
 }
 
 .degree-unit .active {
