@@ -37,7 +37,6 @@ function formatDate() {
 formatDate();
 
 function showWeather(response) {
-  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   let currentTemperature = Math.round(response.data.main.temp);
   document.querySelector("#currentTemp").innerHTML = `${currentTemperature}˚`;
@@ -64,6 +63,8 @@ function showWeather(response) {
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
 
   farenheitTemp = response.data.main.temp;
+  farenheitLowTemp = response.data.main.temp_min;
+  farenheitHighTemp = response.data.main.temp_max;
 }
 
 function showDefault(city) {
@@ -100,10 +101,18 @@ function displayCurrentLocationWeather(event) {
 function displayCelciusTemperature(event) {
   event.preventDefault();
   let celciusTemp = (5 / 9) * (farenheitTemp - 32);
+  let celciusLow = (5 / 9) * (farenheitLowTemp - 32);
+  let celciusHigh = (5 / 9) * (farenheitHighTemp - 32);
   farenheitTemperature.classList.remove("active");
   celciusTemperature.classList.add("active");
   let temperature = document.querySelector("#currentTemp");
   temperature.innerHTML = `${Math.round(celciusTemp)}˚`;
+  document.querySelector("#currentLow").innerHTML = `${Math.round(
+    celciusLow
+  )}˚`;
+  document.querySelector("#currentHigh").innerHTML = `${Math.round(
+    celciusHigh
+  )}˚`;
 }
 
 function displayFarenheitTemperature(event) {
@@ -112,9 +121,17 @@ function displayFarenheitTemperature(event) {
   farenheitTemperature.classList.add("active");
   let temperature = document.querySelector("#currentTemp");
   temperature.innerHTML = `${Math.round(farenheitTemp)}˚`;
+  document.querySelector("#currentHigh").innerHTML = `${Math.round(
+    farenheitLowTemp
+  )}˚`;
+  document.querySelector("#currentLow").innerHTML = `${Math.round(
+    farenheitHighTemp
+  )}˚`;
 }
 
 let farenheitTemp = null;
+let farenheitLowTemp = null;
+let farenheitHighTemp = null;
 
 let currentLocationWeather = document.querySelector(".current-location-button");
 currentLocationWeather.addEventListener("click", displayCurrentLocationWeather);
