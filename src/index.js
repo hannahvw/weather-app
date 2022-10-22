@@ -39,7 +39,7 @@ formatDate();
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   let currentTemperature = Math.round(response.data.main.temp);
-  document.querySelector("#currentTemp").innerHTML = `${currentTemperature}˚F`;
+  document.querySelector("#currentTemp").innerHTML = `${currentTemperature}˚`;
   document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}`;

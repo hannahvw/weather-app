@@ -28,12 +28,6 @@
   <body>
     <div class="container">
       <div class="card">
-        <!-- 
-        <div class="degrees">
-          <a href="#"><span class="farenheit">F</span></a> |
-          <a href="#"><span class="celcius">C</span></a>
-        </div> -->
-
         <form class="search-form">
           <input type="text" class="search-bar" placeholder="City name" />
           <input type="submit" value="Change City" class="button" />
@@ -47,7 +41,13 @@
           <div class="col-6">
             <h2 id="city"></h2>
             <h6 class="date">Sat 8 Oct 2022 06:57</h6>
-            <h2 id="currentTemp">˚F</h2>
+            <h2>
+              <span id="currentTemp"></span>
+              <span class="degree-unit">
+                <span><a href="#" id="farenheit">F</a></span
+                >|<span><a href="#" id="celcius">C</a></span></span
+              >
+            </h2>
           </div>
           <div class="col-6 weather-stats">
             <!-- <i class="fa-regular fa-snowflake"></i> -->

@@ -45,21 +45,16 @@ form .button:hover {
   background: #f8f6f9;
 }
 
-.degrees {
-  font-size: 20px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-}
-
-.farenheit,
-.celcius {
+.degree-unit {
   color: #3e204f;
+  font-size: 16px;
+  position: absolute;
+  top: 160px;
 }
 
-.farenheit:hover,
-.celcius:hover {
-  cursor: pointer;
+#farenheit:hover,
+#celcius:hover {
+  cursor: default;
   color: #8b7995;
 }
 
@@ -140,4 +135,8 @@ form .button:hover {
 #description {
   font-size: 30px;
   margin-top: 10px;
+}
+
+#currentTemp {
+  font-size: 35px;
 }
