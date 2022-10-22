@@ -55,6 +55,8 @@ function showWeather(response) {
   document.querySelector("#currentLow").innerHTML = `${Math.round(
     response.data.main.temp_min
   )}˚`;
+
+  farenheitTemp = response.data.main.temp;
 }
 
 function showDefault(city) {
@@ -88,27 +90,32 @@ function displayCurrentLocationWeather(event) {
   navigator.geolocation.getCurrentPosition(showLocation);
 }
 
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  let celciusTemp = (5 / 9) * (farenheitTemp - 32);
+  farenheitTemperature.classList.remove("active");
+  celciusTemperature.classList.add("active");
+  let temperature = document.querySelector("#currentTemp");
+  temperature.innerHTML = `${Math.round(celciusTemp)}˚`;
+}
+
+function displayFarenheitTemperature(event) {
+  event.preventDefault();
+  celciusTemperature.classList.remove("active");
+  farenheitTemperature.classList.add("active");
+  let temperature = document.querySelector("#currentTemp");
+  temperature.innerHTML = `${Math.round(farenheitTemp)}˚`;
+}
+
+let farenheitTemp = null;
+
 let currentLocationWeather = document.querySelector(".current-location-button");
 currentLocationWeather.addEventListener("click", displayCurrentLocationWeather);
 
+let celciusTemperature = document.querySelector("#celcius");
+celciusTemperature.addEventListener("click", displayCelciusTemperature);
+
+let farenheitTemperature = document.querySelector("#farenheit");
+farenheitTemperature.addEventListener("click", displayFarenheitTemperature);
+
 showDefault("Chicago");
-
-/*
-function displayCelcius() {
-  let celcius = "-5˚C";
-  let celciusTemp = document.querySelector("#currentTemp");
-  celciusTemp.innerHTML = celcius;
-}
-
-let celcius = document.querySelector("a .celcius");
-celcius.addEventListener("click", displayCelcius);
-
-function displayFarenheit() {
-  let farenheit = "22˚F";
-  let farenheitTemp = document.querySelector("#currentTemp");
-  farenheitTemp.innerHTML = farenheit;
-}
-
-let farenheit = document.querySelector("a .farenheit");
-farenheit.addEventListener("click", displayFarenheit);
-*/

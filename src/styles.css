@@ -49,13 +49,7 @@ form .button:hover {
   color: #3e204f;
   font-size: 16px;
   position: absolute;
-  top: 160px;
-}
-
-#farenheit:hover,
-#celcius:hover {
-  cursor: default;
-  color: #8b7995;
+  top: 170px;
 }
 
 .main-section {
@@ -132,11 +126,33 @@ form .button:hover {
   text-decoration: underline;
 }
 
+.date {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.degree-unit a {
+  color: #bcaecc;
+  cursor: default;
+}
+
+.degree-unit .active {
+  color: #3e204f;
+}
+
+.active:hover {
+  text-decoration: none;
+}
+
 #description {
   font-size: 30px;
   margin-top: 10px;
 }
 
 #currentTemp {
+  font-size: 35px;
+}
+
+#current-weather-icon {
   font-size: 35px;
 }
