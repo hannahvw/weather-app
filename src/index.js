@@ -36,6 +36,25 @@ function formatDate() {
 
 formatDate();
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2 daily-forecast">
+            <h5>${day}</h5>
+            <p>H:52˚ L:42˚</p>
+            <i class="fa-solid fa-sun"></i>
+          </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   let currentTemperature = Math.round(response.data.main.temp);
@@ -65,6 +84,8 @@ function showWeather(response) {
   farenheitTemp = response.data.main.temp;
   farenheitLowTemp = response.data.main.temp_min;
   farenheitHighTemp = response.data.main.temp_max;
+
+  displayForecast();
 }
 
 function showDefault(city) {
