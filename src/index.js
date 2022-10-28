@@ -36,7 +36,8 @@ function formatDate() {
 
 formatDate();
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -44,7 +45,7 @@ function displayForecast() {
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
-      ` <div class="col-2 daily-forecast">
+      ` <div class="col daily-forecast">
             <h5>${day}</h5>
             <p>H:52˚ L:42˚</p>
             <i class="fa-solid fa-sun"></i>
@@ -53,6 +54,12 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
 
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "2513f3c728b1b5ff4f4347e1a6af22b8";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function showWeather(response) {
@@ -85,7 +92,7 @@ function showWeather(response) {
   farenheitLowTemp = response.data.main.temp_min;
   farenheitHighTemp = response.data.main.temp_max;
 
-  displayForecast();
+  getForecast(response.data.coord);
 }
 
 function showDefault(city) {
