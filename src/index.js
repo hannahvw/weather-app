@@ -78,7 +78,7 @@ function getForecast(coordinates) {
 function showWeather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   let currentTemperature = Math.round(response.data.main.temp);
-  document.querySelector("#currentTemp").innerHTML = `${currentTemperature}˚`;
+  document.querySelector("#currentTemp").innerHTML = `${currentTemperature}`;
   document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}`;
@@ -100,10 +100,6 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   weatherIcon.setAttribute("alt", response.data.weather[0].description);
-
-  farenheitTemp = response.data.main.temp;
-  farenheitLowTemp = response.data.main.temp_min;
-  farenheitHighTemp = response.data.main.temp_max;
 
   getForecast(response.data.coord);
 }
@@ -139,48 +135,7 @@ function displayCurrentLocationWeather(event) {
   navigator.geolocation.getCurrentPosition(showLocation);
 }
 
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-  let celciusTemp = (5 / 9) * (farenheitTemp - 32);
-  let celciusLow = (5 / 9) * (farenheitLowTemp - 32);
-  let celciusHigh = (5 / 9) * (farenheitHighTemp - 32);
-  farenheitTemperature.classList.remove("active");
-  celciusTemperature.classList.add("active");
-  let temperature = document.querySelector("#currentTemp");
-  temperature.innerHTML = `${Math.round(celciusTemp)}˚`;
-  document.querySelector("#currentLow").innerHTML = `${Math.round(
-    celciusLow
-  )}˚`;
-  document.querySelector("#currentHigh").innerHTML = `${Math.round(
-    celciusHigh
-  )}˚`;
-}
-
-function displayFarenheitTemperature(event) {
-  event.preventDefault();
-  celciusTemperature.classList.remove("active");
-  farenheitTemperature.classList.add("active");
-  let temperature = document.querySelector("#currentTemp");
-  temperature.innerHTML = `${Math.round(farenheitTemp)}˚`;
-  document.querySelector("#currentHigh").innerHTML = `${Math.round(
-    farenheitLowTemp
-  )}˚`;
-  document.querySelector("#currentLow").innerHTML = `${Math.round(
-    farenheitHighTemp
-  )}˚`;
-}
-
-let farenheitTemp = null;
-let farenheitLowTemp = null;
-let farenheitHighTemp = null;
-
 let currentLocationWeather = document.querySelector(".current-location-button");
 currentLocationWeather.addEventListener("click", displayCurrentLocationWeather);
-
-let celciusTemperature = document.querySelector("#celcius");
-celciusTemperature.addEventListener("click", displayCelciusTemperature);
-
-let farenheitTemperature = document.querySelector("#farenheit");
-farenheitTemperature.addEventListener("click", displayFarenheitTemperature);
 
 showDefault("Chicago");

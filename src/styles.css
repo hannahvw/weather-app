@@ -32,6 +32,7 @@ form .button:hover {
 .card {
   margin-top: 50px;
   padding: 10px 20px;
+  padding-right: 0;
   width: 650px;
   border: none;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
@@ -131,21 +132,7 @@ form .button:hover {
 }
 
 .degree-unit {
-  color: #968ba3;
-}
-
-.degree-unit a {
-  color: #83798e;
-  cursor: default;
-  text-decoration: none;
-}
-
-.degree-unit .active {
-  color: #3e204f;
-}
-
-.active:hover {
-  text-decoration: none;
+  font-size: 20px;
 }
 
 #description {
